@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+<h1>List of Areas</h1>
+<br/>
+</body>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Number of Locations</th>
+        <th>Average Measurement</th>
+    </tr>
+    {% for area in allAreas %}
+        <tr>
+            <td>{{ area.id }}</td>
+            <td>{{ area.name }}</td>
+            <td>{{ area.number_of_locations }}</td>
+            {% if area.number_of_locations == 0 %}
+                <td>----------</td>
+            {% else %}
+                <td>{{ area.average_measurement|floatformat:3 }}</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
